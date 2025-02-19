@@ -5,6 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
     <changeSet id="202502172104" author="BaranovDmitry">
+
         <createTable tableName="apartment">
             <column name="id" type="serial">
                 <constraints primaryKey="true" primaryKeyName="apartment_id_pk"/>
@@ -22,6 +23,7 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+
         <createTable tableName="advert">
             <column name="id" type="serial">
                 <constraints primaryKey="true" primaryKeyName="advert_id_pk"/>
@@ -36,10 +38,11 @@
                 <constraints referencedTableName="apartment" referencedColumnNames="id" foreignKeyName="apartment_id_fk"
                              nullable="false"/>
             </column>
-            <column name="description" type="varchar(255)">
+            <column name="description" type="text">
                 <constraints nullable="false"/>
             </column>
         </createTable>
+
         <createTable tableName="client">
             <column name="id" type="serial">
                 <constraints primaryKey="true" primaryKeyName="client_id_pk"/>
@@ -51,6 +54,7 @@
                 <constraints nullable="false" unique="true"/>
             </column>
         </createTable>
+
         <createTable tableName="booking">
             <column name="id" type="serial">
                 <constraints primaryKey="true" primaryKeyName="booking_id_pk"/>
@@ -73,5 +77,6 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+
     </changeSet>
 </databaseChangeLog>
