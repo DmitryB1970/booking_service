@@ -20,17 +20,17 @@ public class Booking {
     private Integer id;
 
     @Column(nullable = false)
-    private LocalDate start_date;
+    private LocalDate startDate;
 
     @Column(nullable = false)
-    private LocalDate end_date;
+    private LocalDate endDate;
 
     @Column(nullable = false)
-    private Integer client_id;
+    private Integer clientId;
 
     @Column(nullable = false)
-    private Integer advert_id;
+    private Integer advertId;
 
     @Column(nullable = false)
-    private BigDecimal total_sum;
+    private BigDecimal totalSum;
 }

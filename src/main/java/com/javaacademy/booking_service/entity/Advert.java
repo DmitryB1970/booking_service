@@ -19,13 +19,13 @@ public class Advert {
     private Integer id;
 
     @Column(nullable = false)
-    private BigDecimal price_for_night;
+    private BigDecimal priceForNight;
 
     @Column(nullable = false)
     private Boolean status;
 
     @Column(nullable = false)
-    private Integer apartment_id;
+    private Integer apartmentId;
 
     @Column(nullable = false)
     private String description;
