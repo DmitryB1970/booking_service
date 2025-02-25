@@ -27,5 +27,5 @@ public class Apartment {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private RoomCount roomCount;
+    private ApartmentType apartmentType;
 }
