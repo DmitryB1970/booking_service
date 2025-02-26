@@ -25,8 +25,13 @@ public class Advert {
     private Boolean status;
 
     @Column(nullable = false)
-    private Integer apartmentId;
-
-    @Column(nullable = false)
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "apartment_id", nullable = false)
+    private Apartment apartment;
+
+    @OneToOne(mappedBy = "advert")
+    @ToString.Exclude
+    private Booking booking;
 }

@@ -3,6 +3,9 @@ package com.javaacademy.booking_service.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
+@SuppressWarnings("checkstyle:RegexpSingleline")
 @Entity
 @Builder
 @Getter
@@ -21,6 +24,10 @@ public class Client {
 
     @Column(nullable = false, unique = true)
     private String email;
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    @ToString.Exclude
+    private List<Booking> bookings;
 }
 
 
