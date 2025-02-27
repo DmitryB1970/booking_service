@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Entity
 @Builder
@@ -34,4 +35,18 @@ public class Advert {
     @OneToOne(mappedBy = "advert")
     @ToString.Exclude
     private Booking booking;
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+            }
+        Advert advert = (Advert) o;
+        return Objects.equals(id, advert.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }

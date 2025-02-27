@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @SuppressWarnings("checkstyle:RegexpSingleline")
 @Entity
@@ -28,6 +29,20 @@ public class Client {
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
     @ToString.Exclude
     private List<Booking> bookings;
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Client client = (Client) o;
+        return Objects.equals(id, client.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }
 
 
