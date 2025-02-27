@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -32,9 +33,9 @@ public class Advert {
     @JoinColumn(name = "apartment_id", nullable = false)
     private Apartment apartment;
 
-    @OneToOne(mappedBy = "advert")
+    @OneToMany(mappedBy = "advert")
     @ToString.Exclude
-    private Booking booking;
+    private List<Booking> booking;
 
     @Override
     public boolean equals(Object o) {

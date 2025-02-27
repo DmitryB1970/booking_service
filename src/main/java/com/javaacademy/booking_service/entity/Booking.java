@@ -33,8 +33,8 @@ public class Booking {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @OneToOne
-    @JoinColumn(name = "advert_id", nullable = false, unique = true)
+    @ManyToOne
+    @JoinColumn(name = "advert_id", nullable = false)
     private Advert advert;
 
     @Override
