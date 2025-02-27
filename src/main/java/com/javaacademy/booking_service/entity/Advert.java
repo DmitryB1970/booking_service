@@ -33,7 +33,7 @@ public class Advert {
     @JoinColumn(name = "apartment_id", nullable = false)
     private Apartment apartment;
 
-    @OneToMany(mappedBy = "advert")
+    @OneToMany(mappedBy = "advert", fetch = FetchType.EAGER)
     @ToString.Exclude
     private List<Booking> booking;
 
