@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-import java.util.Objects;
 
 @SuppressWarnings("checkstyle:RegexpSingleline")
 @Entity
@@ -18,6 +17,7 @@ public class Apartment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Integer id;
 
     @Column(nullable = false)
@@ -36,18 +36,4 @@ public class Apartment {
     @OneToMany(mappedBy = "apartment", fetch = FetchType.EAGER)
     @ToString.Exclude
     private List<Advert> adverts;
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Apartment apartment = (Apartment) o;
-        return Objects.equals(id, apartment.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
 }

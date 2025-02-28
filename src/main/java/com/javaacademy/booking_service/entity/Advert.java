@@ -5,7 +5,6 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Builder
@@ -18,6 +17,7 @@ public class Advert {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Integer id;
 
     @Column(nullable = false)
@@ -36,18 +36,4 @@ public class Advert {
     @OneToMany(mappedBy = "advert", fetch = FetchType.EAGER)
     @ToString.Exclude
     private List<Booking> booking;
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-            }
-        Advert advert = (Advert) o;
-        return Objects.equals(id, advert.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
 }
