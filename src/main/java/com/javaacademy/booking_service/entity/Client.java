@@ -3,6 +3,8 @@ package com.javaacademy.booking_service.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Builder
 @Getter
@@ -14,6 +16,7 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Integer id;
 
     @Column(nullable = false)
@@ -21,6 +24,10 @@ public class Client {
 
     @Column(nullable = false, unique = true)
     private String email;
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    @ToString.Exclude
+    private List<Booking> bookings;
 }
 
 

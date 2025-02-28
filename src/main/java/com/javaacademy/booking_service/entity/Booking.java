@@ -17,6 +17,7 @@ public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Integer id;
 
     @Column(nullable = false)
@@ -26,11 +27,13 @@ public class Booking {
     private LocalDate endDate;
 
     @Column(nullable = false)
-    private Integer clientId;
-
-    @Column(nullable = false)
-    private Integer advertId;
-
-    @Column(nullable = false)
     private BigDecimal totalSum;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id", nullable = false)
+    private Client client;
+
+    @ManyToOne
+    @JoinColumn(name = "advert_id", nullable = false)
+    private Advert advert;
 }
