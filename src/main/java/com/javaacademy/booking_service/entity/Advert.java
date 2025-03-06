@@ -35,5 +35,5 @@ public class Advert {
 
     @OneToMany(mappedBy = "advert", fetch = FetchType.EAGER)
     @ToString.Exclude
-    private List<Booking> booking;
+    private List<Booking> bookings;
 }

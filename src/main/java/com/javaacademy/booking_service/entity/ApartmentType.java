@@ -1,5 +1,6 @@
 package com.javaacademy.booking_service.entity;
 
+
 public enum ApartmentType {
     ONLY_ROOM,
     ONE_ROOM_FLAT,
