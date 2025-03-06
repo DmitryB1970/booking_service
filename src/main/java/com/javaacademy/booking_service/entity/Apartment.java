@@ -5,7 +5,6 @@ import lombok.*;
 
 import java.util.List;
 
-@SuppressWarnings("checkstyle:RegexpSingleline")
 @Entity
 @Builder
 @Getter
